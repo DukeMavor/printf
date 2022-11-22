@@ -45,5 +45,14 @@
 
 * C
 
+# Tasks
+
+** Task 0
+
+* Handle the following conversion specifiers:
+* d
+* i
+
+
 # Authors
 
