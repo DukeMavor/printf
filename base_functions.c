@@ -1,6 +1,5 @@
 #include "main.h"
 
-
 /**
  * print_unsigned - Prints an unsigned number
  *
@@ -22,6 +21,7 @@ int print_unsigned(va_list types, char buffer[],
 	num = convert_size_unsgnd(num, size);
 
 	if (num == 0)
+
 		buffer[i--] = '0';
 
 	buffer[BUFF_SIZE - 1] = '\0';
