@@ -47,18 +47,22 @@
 
 # Tasks
 
-** Task 0
+** Task 
+
+* printf
+
+** Task 1
 
 * Handle the following conversion specifiers:
 * d
 * i
 
-** Task 1
+** Task 2
 
 * Handle the following custom conversion specifiers:
 * b: the unsigned int argument is converted to binary
 
-** Task 2
+** Task 3
 
 * Handle the following conversion specifiers:
 * u
@@ -66,17 +70,19 @@
 * x
 * X
 
-** Task 3
+
+** Task 4
 
 * Use a local buffer of 1024 chars in order to call write as little as possible.
 
-** Task 4
+** Task 5
 
 * Handle the following custom conversion specifier:
 
 * S : prints the string.
 * Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the
   ASCII code value in hexadecimal (upper case - always 2 characters)
+
 
 ** Task 6
 
