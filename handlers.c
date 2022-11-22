@@ -141,7 +141,7 @@ int write_num(int ind, char buffer[],
 
 /**
  * write_unsgnd - Writes an unsigned number
- * 
+ *
  * @is_negative: Number indicating if the num is negative
  * @ind: Index at which the number starts in the buffer
  * @buffer: Array of chars
@@ -200,7 +200,7 @@ int write_unsgnd(int is_negative, int ind,
 
 /**
  * write_pointer - Write a memory address
- * 
+ *
  * @buffer: Arrays of chars
  * @ind: Index at which the number starts in the buffer
  * @length: Length of number
