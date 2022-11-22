@@ -24,6 +24,7 @@
 * functions
 * functions2
 * handle_print.c
+* handlers.c
 
 # Authors
 
