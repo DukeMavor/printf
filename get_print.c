@@ -19,7 +19,7 @@ int (*get_print(char s))(va_list, flag *)
 		{'c', print_char},
 		{'d', print_int},
 		{'u', print_unsigned},
-		{'x',print_hexadecimal},
+		{'x', print_hexadecimal},
 		{'X', print_hex_upper_case},
 		{'b', print_binary},
 		{'o', print_octal},
@@ -30,7 +30,7 @@ int (*get_print(char s))(va_list, flag *)
 		{'%', print_percent}
 
 		};
-	
+
 	int flags = 14;
 
 	register int i;
@@ -40,6 +40,6 @@ int (*get_print(char s))(va_list, flag *)
 		if (func_arr[i].c == s)
 
 			return (func_arr[i].f);
-			
+
 	return (NULL);
 }
