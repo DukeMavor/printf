@@ -47,7 +47,7 @@ int handle_write_char(char c, char buffer[],
 
 /**
  * write_number - Prints a string
- * 
+ *
  * @is_negative: Lista of arguments
  * @ind: char types.
  * @buffer: Buffer array to handle print
@@ -81,6 +81,7 @@ int write_number(int is_negative, int ind, char buffer[],
 
 /**
  * write_num - Write a number using a bufffer
+ * 
  * @ind: Index at which the number starts on the buffer
  * @buffer: Buffer
  * @flags: Flags
