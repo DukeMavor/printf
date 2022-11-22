@@ -100,5 +100,9 @@
 
 * Handle the field width for non-custom conversion specifiers.
 
+** Task 10
+
+* Handle the precision for non-custom conversion specifiers.
+
 # Authors
 
