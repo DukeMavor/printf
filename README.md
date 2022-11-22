@@ -29,5 +29,7 @@
 
 # Test files
 
+* main.c
+
 # Authors
 
