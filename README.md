@@ -82,7 +82,12 @@
 
 * Handle the following conversion specifier: p.
 
+** Task 7
 
+* Handle the following flag characters for non-custom conversion specifiers:
+* '+'
+* 'space'
+* '#'
 
 # Authors
 
