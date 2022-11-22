@@ -33,6 +33,10 @@
 
 # Editors 
 
+* Vim
+* Vscode
+* Emacs
+
 # compilers
 
 # Authors
