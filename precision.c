@@ -14,7 +14,10 @@ int curr_i = *i + 1;
 int precision = -1;
 
 if (format[curr_i] != '.')
+{
 return (precision);
+}
+
 
 precision = 0;
 
