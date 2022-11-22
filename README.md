@@ -18,6 +18,7 @@
 * base_functions.c
 * convertor.c
 * precision.c
+* size.c
 
 # Authors
 
