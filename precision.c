@@ -18,7 +18,6 @@ if (format[curr_i] != '.')
 return (precision);
 }
 
-
 precision = 0;
 
 for (curr_i += 1; format[curr_i] != '\0'; curr_i++)
