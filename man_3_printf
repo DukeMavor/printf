@@ -57,6 +57,28 @@ _printf("%%\\n")
 
 .B More examples in the future (or maybe not)
 
+.B Conversion specifiers
+
+.IP %c
+
+- prints character.
+
+.IP %s
+
+- prints string.
+
+.IP %%
+
+- prints percentage symbol.
+
+.IP %d
+
+- prints decimal.
+
+.IP %i
+
+- prints integer number.
+
 .SH SEE ALSO
 .B man 3 printf (printf man page)
 
@@ -65,6 +87,10 @@ NO BUGS :)
 
 .SH AUTHOR
 Victor Awunudo - ALX Africa Cohort 10
+Murendwa Ratshitimba - ALX Africa Cohort 10
 
 .SH COPYRIGHT
+
 Victor Awunudo - ALX Africa Cohort 10 | Nigeria Campus | All rights reserved
+
+Murendwa Ratshitimba - ALX Africa Cohort 10 | South Africa Campus | All rights reversed

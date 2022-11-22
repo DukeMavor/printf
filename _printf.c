@@ -1,80 +1,50 @@
 #include "main.h"
+#include <limits.h>
+#include <stdio.h>
+
 /**
- * _printf - is a function that prints
- * @format: gives the format to the function
- * cases - d, i, s, c, %
- * Return: a string.
+ * _printf - produces output according to a format
+ * @format: format string containing the characters and the specifiers
+ * Description: this function will call the get_print() function that will
+ * determine which printing function to call depending on the conversion
+ * specifiers contained into fmt
+ * Return: length of the formatted output string
  */
 int _printf(const char *format, ...)
 {
-	va_list ap;
-	int count = -1;
+	int (*pfunc)(va_list, flag *);
+	const char *p;
+	va_list arguments;
+	flag flags = {0, 0, 0};
 
-	pr_f ops[] = {
-	{"c", print_c},
-	{"s", print_s},
-	{"d", print_d},
-	{"%", print_mod},
-	{"i", print_d},
-	{"r", print_r},
-	{NULL, NULL}
-	};
+	register int count = 0;
 
-	if (format != NULL)
+	va_start(arguments, format);
+	if (!format || (format[0] == '%' && !format[1]))
+		return (-1);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = format; *p; p++)
 	{
-		va_start(ap, format);
-		count = _funcion(format, ops, ap);
-		va_end(ap);
-	}
-	return (count);
-}
-
-/**
- * _funcion - Helper function to print and call functions.
- * @format: String recieved.
- * @ops: special options.
- * @ap: arguments
- * Return: number of chars printed
- */
-
-int _funcion(const char *format, pr_f ops[], va_list ap)
-{
-	int count = 0, i, j;
-
-	for (i = 0; format[i] != '\0'; i++)
-	{
-		if (format[i] == '%')
+		if (*p == '%')
 		{
-			if (format[i + 1] == '\0')
+			p++;
+			if (*p == '%')
 			{
-				return (-1);
+				count += _putchar('%');
+				continue;
 			}
-			for (j = 0; ops[j].op != NULL; j++)
-			{
-				if (format[i + 1] == ops[j].op[0])
-				{
-					count = count + ops[j].f(ap);
-					break;
-				}
-			}
-			if (ops[j].op == NULL && format[i + 1] != ' ')
-			{
-				if (format[i + 1] != '\0')
-				{
-					_putchar(format[i]);
-					_putchar(format[i + 1]);
-					count = count + 2;
-				}
-				else
-					return (-1);
-			}
-			i = i + 1;
-		}
-		else
-		{
-			_putchar(format[i]);
-			count = count + 1;
-		}
+			while (get_flag(*p, &flags))
+				p++;
+			pfunc = get_print(*p);
+			count += (pfunc)
+				? pfunc(arguments, &flags)
+				: _printf("%%%c", *p);
+		} else
+			count += _putchar(*p);
 	}
+	_putchar(-1);
+	va_end(arguments);
 	return (count);
+
 }

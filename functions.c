@@ -1,75 +1,44 @@
 #include "main.h"
+#include <unistd.h>
+
 /**
- * printnum - Helper function for counting
- * @n: number that gets added recursively
- * Return: void
+ * _putchar - writes the character c to stdout
+ * 
+ * @c: The character to print
+ * Return: On success 1.
+ * On error, -1 is returned, and errno is set appropriately.
+ * Description: _putchar uses a local buffer of 1024 to call write
+ * as little as possible
  */
-
-int printnum(int n)
+int _putchar(char c)
 {
-	int count = 0;
-	unsigned int num;
-	unsigned int dig;
-	unsigned int i;
-	unsigned int long_num;
+	static char buf[1024];
+	static int i;
 
-	long_num = n;
-	if (n < 0)
+	if (c == -1 || i >= 1024)
 	{
-		count++;
-		long_num = long_num * -1;
-		_putchar('-');
+		write(1, &buf, i);
+		i = 0;
 	}
-	if (long_num == 0)
+	if (c != -1)
 	{
-		count++;
-		_putchar('0');
-		return (count);
+		buf[i] = c;
+		i++;
 	}
-	i = 1;
-	while (((long_num / i) > 9))
-	{
-		i = i * 10;
-	}
-	while (i > 0)
-	{
-		num = long_num / i;
-		dig = num % 10;
-		count++;
-		_putchar(dig + '0');
-		i = (i / 10);
-	}
-	return (count);
+	return (1);
 }
 
 /**
- * print_d - prints numbers. Integers and decimals!
- * @list: list
- * Return: a number
+ * _puts - prints a string to stdout
+ * 
+ * @str: pointer to the string to print
+ * Return: number of chars written
  */
-
-int print_d(va_list list)
+int _puts(char *str)
 {
-	int output;
-	int count;
+	register int i;
 
-	output = va_arg(list, int);
-	count = printnum(output);
-	return (count);
-}
-
-/**
- * print_r - prints a reverse?
- * @list: list
- * Return: stuff!
- */
-
-int print_r(va_list list)
-{
-	char *str = "%r";
-	int len = _strlen(str);
-
-	write(1, str, len);
-	va_end(list);
-	return (len);
+	for (i = 0; str[i] != '\0'; i++)
+		_putchar(str[i]);
+	return (i);
 }

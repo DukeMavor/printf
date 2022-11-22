@@ -1,69 +1,108 @@
 #include "main.h"
+
 /**
- * print_c - print a character
- * @list: list
- * Return: a character
+ * print_bigS - Non printable characters
+ * (0 < ASCII value < 32 or >= 127) are
+ * printed this way: \x, followed by the ASCII code
+ * value in hexadecimal (upper case - always 2 characters)
+ * @l: va_list arguments from _printf
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
+ * Return: number of char printed
  */
-
-int print_c(va_list list)
+int print_bigS(va_list l, flag *f)
 {
-	char c;
+	int i, count = 0;
+	char *res;
+	char *s = va_arg(l, char *);
 
-	c = va_arg(list, int);
-	_putchar(c);
-	return (1);
-}
-/**
- * print_s - prints a string
- * @list: list
- * Return: a string
- */
+	(void)f;
+	if (!s)
+		return (_puts("(null)"));
 
-int print_s(va_list list)
-{
-	int i;
-	char *str2;
-
-	str2 = va_arg(list, char *);
-
-	if (str2 == NULL)
+	for (i = 0; s[i]; i++)
 	{
-		_printf("(null)");
-		return (6);
+		if (s[i] > 0 && (s[i] < 32 || s[i] >= 127))
+		{
+			_puts("\\x");
+			count += 2;
+			res = convert(s[i], 16, 0);
+			if (!res[1])
+				count += _putchar('0');
+			count += _puts(res);
+		}
+		else
+			count += _putchar(s[i]);
 	}
-	for (i = 0; str2[i] != '\0'; i++)
-		_putchar(str2[i]);
+	return (count);
+}
+
+/**
+ * print_rev - prints a string in reverse
+ * @l: argument from _printf
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
+ * Return: length of the printed string
+ */
+int print_rev(va_list l, flag *f)
+{
+	int i = 0, j;
+	char *s = va_arg(l, char *);
+
+	(void)f;
+	if (!s)
+		s = "(null)";
+
+	while (s[i])
+		i++;
+
+	for (j = i - 1; j >= 0; j--)
+		_putchar(s[j]);
+
 	return (i);
 }
-/**
- * print_mod - print a '%' sign
- * @list: list
- * Return: a '%' sign
- */
 
-int print_mod(va_list list)
+/**
+ * print_rot13 - prints a string using rot13
+ * @l: list of arguments from _printf
+ * @f: pointer to the struct flags that determines
+ * if a flag is passed to _printf
+ * Return: length of the printed string
+ */
+int print_rot13(va_list l, flag *f)
 {
-	if (list != NULL)
+	int i, j;
+	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	char ROT13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
+	char *s = va_arg(l, char *);
+
+	(void)f;
+	for (j = 0; s[j]; j++)
 	{
+		if (s[j] < 'A' || (s[j] > 'Z' && s[j] < 'a') || s[j] > 'z')
+			_putchar(s[j]);
+		else
+		{
+			for (i = 0; i <= 52; i++)
+			{
+				if (s[j] == rot13[i])
+					_putchar(ROT13[i]);
+			}
+		}
 	}
-	_putchar('%');
-	return (1);
+
+	return (j);
 }
 
 /**
- * _strlen - Checks how long is a string
- * @s: String
- * Return: 0 or the length
+ * print_percent - prints a percent
+ * @l: va_list arguments from _printf
+ * @f: pointer to the struct flags in which we turn the flags on
+ * Return: number of char printed
  */
-
-int _strlen(char *s)
+int print_percent(va_list l, flag *f)
 {
-	if (*s == '\0')
-	{
-		return (0);
-	}
-		else
-	{
-		return (1 + _strlen(s + 1));
-	}
+	(void)l;
+	(void)f;
+	return (_putchar('%'));
 }
