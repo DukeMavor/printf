@@ -53,6 +53,11 @@
 * d
 * i
 
+** Task 1
+
+* Handle the following custom conversion specifiers:
+* b: the unsigned int argument is converted to binary
+
 
 # Authors
 
