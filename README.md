@@ -117,5 +117,10 @@
 * Handle the following custom conversion specifier:
 * r : prints the reversed string
 
+** Task 14
+
+* Handle the following custom conversion specifier:
+* R: prints the rot13'ed string
+
 # Authors
 
