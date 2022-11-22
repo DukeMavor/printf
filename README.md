@@ -12,7 +12,7 @@
 * Managing a lot of files and finding a good workflow
 * team work
 
-# Project file
+# Main Project file
 
 * _printf.c
 * base_functions.c
@@ -26,6 +26,8 @@
 * handle_print.c
 * handlers.c
 * main.c
+
+# Test files
 
 # Authors
 
