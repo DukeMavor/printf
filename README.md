@@ -21,6 +21,7 @@
 * size.c
 * width.c
 * flags
+* functions
 
 # Authors
 
