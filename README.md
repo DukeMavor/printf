@@ -17,6 +17,7 @@
 * _printf.c
 * base_functions.c
 * convertor.c
+* precision.c
 
 # Authors
 
