@@ -20,6 +20,7 @@
 * precision.c
 * size.c
 * width.c
+* flags
 
 # Authors
 
