@@ -19,6 +19,7 @@
 * convertor.c
 * precision.c
 * size.c
+* width.c
 
 # Authors
 
